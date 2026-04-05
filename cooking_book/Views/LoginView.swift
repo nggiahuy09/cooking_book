@@ -9,32 +9,16 @@ import SwiftUI
 
 struct LoginView: View {
 
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @StateObject private var viewModel = LoginViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Email")
-                .font(.system(size: 15.0))
-            TextField("Email", text: $email)
-                .font(.system(size: 14.0, weight: .regular))
+            AuthTextFieldView(title: "Email", inputTextField: $viewModel.email)
                 .keyboardType(.emailAddress)
-                .textInputAutocapitalization(.never)
-            Rectangle()
-                .fill(.border)
-                .frame(height: 0.5)
                 .padding(.bottom, 16.0)
 
-            Text("Password")
-                .font(.system(size: 15.0))
-            SecureField("Password", text: $password)
-                .font(.system(size: 14.0, weight: .regular))
-                .keyboardType(.emailAddress)
-                .textInputAutocapitalization(.never)
-            Rectangle()
-                .fill(.border)
-                .frame(height: 0.5)
-                .padding(.bottom, 48.0)
+            AuthTextFieldView(title: "Password", isSecure: true, inputTextField: $viewModel.password)
+                .padding(.bottom, 40.0)
 
             Button(action: {
 
@@ -52,7 +36,7 @@ struct LoginView: View {
                 Text("Don't have an account?")
                     .font(.system(size: 14.0))
                 Button(action: {
-
+                    viewModel.presentRegisterView = true
                 }, label: {
                     Text("Register now")
                         .font(.system(size: 14.0, weight: .semibold))
@@ -61,6 +45,9 @@ struct LoginView: View {
             .padding(.top, 8.0)
         }
         .padding()
+        .fullScreenCover(isPresented: $viewModel.presentRegisterView, content: {
+            RegisterView()
+        })
     }
 }
 
