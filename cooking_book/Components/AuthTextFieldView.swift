@@ -10,21 +10,14 @@ import SwiftUI
 struct AuthTextFieldView: View {
 
     @State var title: String
-    @State var isSecure: Bool = false
     @Binding var inputTextField: String
 
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
                 .font(.system(size: 15.0))
-            if isSecure {
-                SecureField(title, text: $inputTextField)
-                    .textFieldStyle(AuthTextFieldStyle())
-
-            } else {
-                TextField(title, text: $inputTextField)
-                    .textFieldStyle(AuthTextFieldStyle())
-            }
+            TextField(title, text: $inputTextField)
+                .textFieldStyle(AuthTextFieldStyle())
         }
     }
 }

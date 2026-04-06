@@ -17,7 +17,7 @@ struct LoginView: View {
                 .keyboardType(.emailAddress)
                 .padding(.bottom, 16.0)
 
-            AuthTextFieldView(title: "Password", isSecure: true, inputTextField: $viewModel.password)
+            PasswordTextFieldView(title: "Password", inputTextField: $viewModel.password)
                 .padding(.bottom, 40.0)
 
             Button(action: {
