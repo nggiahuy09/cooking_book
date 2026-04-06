@@ -21,7 +21,7 @@ struct LoginView: View {
                 .padding(.bottom, 40.0)
 
             Button(action: {
-
+                // TODO: handle login logic later
             }, label: {
                 Text("Login")
                     .font(.system(size: 15.0, weight: .semibold))
