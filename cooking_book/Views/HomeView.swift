@@ -22,6 +22,7 @@ struct HomeView: View {
             Text(receipe.name)
                 .lineLimit(1)
                 .font(.system(size: 16.0, weight: .semibold))
+                .foregroundStyle(.black)
         }
     }
 
@@ -38,7 +39,11 @@ struct HomeView: View {
                 VStack {
                     HStack {
                         ForEach(0...2, id: \.self) { index in
-                            ReceipeRowItem(receipe: Receipe.mockReceipes[index], itemHeight: itemHeight, itemWidth: itemWidth)
+                            NavigationLink {
+                                ReceipeDetailsView(receipe: Receipe.mockReceipes[index])
+                            } label: {
+                                ReceipeRowItem(receipe: Receipe.mockReceipes[index], itemHeight: itemHeight, itemWidth: itemWidth)
+                            }
                         }
                     }
                     Spacer()
