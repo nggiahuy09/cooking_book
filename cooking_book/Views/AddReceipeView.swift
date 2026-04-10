@@ -64,6 +64,14 @@ struct AddReceipeView: View {
                 .scrollContentBackground(.hidden)
                 .cornerRadius(8.0)
 
+            Button(action: {
+                // TODO: handle login later
+            }, label: {
+                Text("Submit")
+            })
+            .buttonStyle(PrimaryButtonStyle())
+            .padding(.bottom)
+
             Spacer()
         }
         .padding(.horizontal)

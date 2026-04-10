@@ -26,13 +26,9 @@ struct LoginView: View {
                 sessionManager.sessionState = .loggedIn
             }, label: {
                 Text("Login")
-                    .font(.system(size: 15.0, weight: .semibold))
-                    .padding()
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .background(.green)
-                    .clipShape(RoundedRectangle(cornerRadius: 8.0))
             })
+            .buttonStyle(PrimaryButtonStyle())
+
             HStack {
                 Spacer()
                 Text("Don't have an account?")
