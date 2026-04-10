@@ -11,5 +11,4 @@ import Combine
 class HomeViewModel : ObservableObject {
 
     @Published var showSignOutAlert = false
-
 }

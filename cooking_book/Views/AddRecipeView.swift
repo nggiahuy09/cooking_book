@@ -1,5 +1,5 @@
 //
-//  AddReceipeView.swift
+//  AddRecipeView.swift
 //  cooking_book
 //
 //  Created by Nguyễn Gia Huy on 9/4/26.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct AddReceipeView: View {
+struct AddRecipeView: View {
 
-    @State private var receipeName: String = ""
+    @State private var recipeName: String = ""
     @State private var instructions: String = ""
     @State private var preparationTime: Int = 0
 
@@ -30,10 +30,10 @@ struct AddReceipeView: View {
             }
             .padding(.bottom, 24.0)
 
-            Text("Receipe name")
+            Text("Recipe name")
                 .font(.system(size: 16.0, weight: .semibold))
                 .padding(.bottom)
-            TextField("Receipe name", text: $receipeName)
+            TextField("Recipe name", text: $recipeName)
                 .textFieldStyle(RoundedRectangleTextFieldStyle())
                 .padding(.bottom, 40.0)
 
@@ -79,5 +79,5 @@ struct AddReceipeView: View {
 }
 
 #Preview {
-    AddReceipeView()
+    AddRecipeView()
 }
