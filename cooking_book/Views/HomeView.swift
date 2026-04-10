@@ -12,14 +12,14 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @EnvironmentObject var sessionManager: SessionManager
 
-    fileprivate func ReceipeRowItem(receipe: Receipe, itemHeight: CGFloat, itemWidth: CGFloat) -> some View {
+    fileprivate func RecipeRowItem(recipe: Recipe, itemHeight: CGFloat, itemWidth: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 8.0) {
-            Image(receipe.image)
+            Image(recipe.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: itemWidth, height: itemHeight)
                 .cornerRadius(12.0)
-            Text(receipe.name)
+            Text(recipe.name)
                 .lineLimit(1)
                 .font(.system(size: 16.0, weight: .semibold))
                 .foregroundStyle(.black)
@@ -40,9 +40,9 @@ struct HomeView: View {
                     HStack {
                         ForEach(0...2, id: \.self) { index in
                             NavigationLink {
-                                ReceipeDetailsView(receipe: Receipe.mockReceipes[index])
+                                RecipeDetailsView(recipe: Recipe.mockReceipes[index])
                             } label: {
-                                ReceipeRowItem(receipe: Receipe.mockReceipes[index], itemHeight: itemHeight, itemWidth: itemWidth)
+                                RecipeRowItem(recipe: Recipe.mockReceipes[index], itemHeight: itemHeight, itemWidth: itemWidth)
                             }
                         }
                     }
