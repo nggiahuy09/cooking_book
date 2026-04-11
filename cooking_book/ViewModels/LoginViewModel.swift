@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import Combine
 
-class LoginViewModel: ObservableObject {
-    @Published var presentRegisterView = false
-    @Published var email = ""
-    @Published var password = ""
+@Observable
+class LoginViewModel {
+    var presentRegisterView = false
+    var email = ""
+    var password = ""
 }

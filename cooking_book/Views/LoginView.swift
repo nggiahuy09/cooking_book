@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
 
-    @StateObject private var viewModel = LoginViewModel()
-    @EnvironmentObject var sessionManager: SessionManager
+    @State private var viewModel = LoginViewModel()
+    @Environment(SessionManager.self) var sessionManager: SessionManager
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -51,5 +51,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
-        .environmentObject(SessionManager())
+        .environment(SessionManager())
 }

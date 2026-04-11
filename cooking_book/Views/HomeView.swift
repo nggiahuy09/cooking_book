@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
 
-    @StateObject private var viewModel = HomeViewModel()
-    @EnvironmentObject var sessionManager: SessionManager
+    @State private var viewModel = HomeViewModel()
+    @Environment(SessionManager.self) var sessionManager: SessionManager
 
     fileprivate func RecipeRowItem(recipe: Recipe, itemHeight: CGFloat, itemWidth: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 8.0) {
@@ -47,6 +47,12 @@ struct HomeView: View {
                         }
                     }
                     Spacer()
+                    Button(action: {
+                        viewModel.isShowAddRecipeView = true
+                    }, label: {
+                        Text("Add Recipe")
+                    })
+                    .buttonStyle(PrimaryButtonStyle())
                 }
                 .padding(.horizontal, padding)
                 .toolbar {
@@ -67,11 +73,14 @@ struct HomeView: View {
                     Button("Cancel", role: .cancel) {}
                 }
             }
+            .sheet(isPresented: $viewModel.isShowAddRecipeView) {
+                AddRecipeView()
+            }
         }
     }
 }
 
 #Preview {
     HomeView()
-        .environmentObject(SessionManager())
+        .environment(SessionManager())
 }
