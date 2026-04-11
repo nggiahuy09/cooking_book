@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
 
-    @StateObject private var viewModel = HomeViewModel()
-    @EnvironmentObject var sessionManager: SessionManager
+    @State private var viewModel = HomeViewModel()
+    @Environment(SessionManager.self) var sessionManager: SessionManager
 
     fileprivate func RecipeRowItem(recipe: Recipe, itemHeight: CGFloat, itemWidth: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 8.0) {
@@ -82,5 +82,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environmentObject(SessionManager())
+        .environment(SessionManager())
 }

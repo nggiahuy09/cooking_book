@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddRecipeView: View {
 
-    @StateObject private var viewModel = AddRecipeViewModel()
+    @State private var viewModel = AddRecipeViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {

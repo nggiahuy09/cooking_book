@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import Combine
 
-class RegisterViewModel: ObservableObject {
-    @Published var username = ""
-    @Published var email = ""
-    @Published var password = ""
+@Observable
+class RegisterViewModel {
+    var username = ""
+    var email = ""
+    var password = ""
 }

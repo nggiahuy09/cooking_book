@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import Combine
 
-class AddRecipeViewModel : ObservableObject {
-    @Published var recipeName = ""
-    @Published var preparationTime = 0
-    @Published var instructions = ""
+@Observable
+class AddRecipeViewModel {
+    var recipeName = ""
+    var preparationTime = 0
+    var instructions = ""
 }
